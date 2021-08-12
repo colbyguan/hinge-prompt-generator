@@ -1,38 +1,14 @@
-.App {
-  text-align: center;
+.hinge-shadow {
+  box-shadow: 0 7px 30px -10px rgba(150,170,180,0.3);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hinge-prompt {
+  font-family: 'Poppins';
+  font-weight: 500;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.hinge-answer {
+  font-family: 'Source Serif Pro';
+  font-weight: 600;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn {
+  max-width: 80px;
 }
