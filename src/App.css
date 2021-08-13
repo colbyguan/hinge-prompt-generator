@@ -1,13 +1,11 @@
 .hinge-shadow {
-  box-shadow: 0 7px 30px -10px rgba(150,170,180,0.3);
+  box-shadow: 0 7px 30px -10px rgba(150,170,180,0.2);
 }
 .hinge-prompt {
   font-family: 'Poppins';
-  font-weight: 500;
 }
 .hinge-answer {
   font-family: 'Source Serif Pro';
-  font-weight: 600;
 }
 .btn {
   max-width: 80px;

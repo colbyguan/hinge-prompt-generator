@@ -12,6 +12,8 @@ function App() {
     "Opening a bottle of wine with a drill. 🤦🏽‍♀️"
   );
   const [width, setWidth] = useState(464);
+  const [promptThicc, setPromptThicc] = useState(500);
+  const [responseThicc, setResponseThicc] = useState(600);
 
   const prompt = customPrompt.length > 0 ? customPrompt : chosenPrompt;
 
@@ -41,9 +43,9 @@ function App() {
                   setChosenPrompt(e.target.value);
                 }}
                 defaultValue="first"
-                className="select select-bordered w-full max-w-xs"
+                className="font-semibold select select-bordered select-sm w-full max-w-xs"
               >
-                <option id="first" disabled="disabled">
+                <option selected id="first" disabled="disabled">
                   Choose prompt
                 </option>
                 {PROMPTS.sort().map((p) => (
@@ -54,13 +56,13 @@ function App() {
 
               <div className="flex flex-row">
                 <label className="label">
-                  <span className="label-text">
+                  <span className="font-semibold label-text">
                     <span>Or write custom prompt:</span>
                   </span>
                 </label>
                 <button
                   onClick={(e) => setCustomPrompt("")}
-                  className="btn btn-outline btn-xs my-2 mx-1"
+                  className="opacity-50 btn btn-outline btn-xs my-2 mx-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -90,12 +92,12 @@ function App() {
               <div className="flex flex-row">
                 <label className="label">
                   <span className="label-text">
-                    <span className="mr-2">Response</span>
+                    <span className="font-semibold mr-2">Response</span>
                   </span>
                 </label>
                 <button
                   onClick={(e) => setResponse("")}
-                  className="btn btn-outline btn-xs my-2 mx-1"
+                  className="opacity-50 btn btn-outline btn-xs my-2 mx-1"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,26 +126,63 @@ function App() {
               <div className="h-4"></div>
               <label className="label">
                 <span className="label-text">Width: {width}</span>
+
               </label>
               <input
                 onChange={(e) => setWidth(parseInt(e.target.value))}
                 type="range"
                 min="300"
                 max="1000"
+                step="10"
                 value={width}
-                className="range"
+                className="range range-sm"
               />
 
               <div className="h-4"></div>
               <label className="label">
-                <span className="label-text">Show like button</span>
+                <span className="label-text">Prompt font thickness: {promptThicc}</span>
+                <div
+                  data-tip="Windows and Mac seem to render the font thickness differently (thinner on Windows) so here you go!"
+                  className="tooltip tooltip-left">
+                  <button className="btn btn-sm btn-outline">?</button>
+                </div>
               </label>
               <input
-                checked={showLike}
-                onChange={() => setShowLike(!showLike)}
-                type="checkbox"
-                className="toggle"
+                onChange={(e) => setPromptThicc(parseInt(e.target.value))}
+                type="range"
+                min="300"
+                max="900"
+                step="100"
+                value={promptThicc}
+                className="range range-sm"
               />
+
+              <div className="h-4"></div>
+              <label className="label">
+                <span className="label-text">Response font thickness: {responseThicc}</span>
+              </label>
+              <input
+                onChange={(e) => setResponseThicc(parseInt(e.target.value))}
+                type="range"
+                min="400"
+                max="900"
+                step="100"
+                value={responseThicc}
+                className="range range-sm"
+              />
+
+              <div className="h-4"></div>
+              <div className="flex flex-row items-center">
+                <label className="label mr-1">
+                  <span className="label-text">Show like button</span>
+                </label>
+                <input
+                  checked={showLike}
+                  onChange={() => setShowLike(!showLike)}
+                  type="checkbox"
+                  className="toggle toggle-sm"
+                />
+              </div>
 
               <div className="h-4"></div>
               <label className="label">
@@ -165,10 +204,10 @@ function App() {
             className="mx-10 bg-white card pb-3 hinge-shadow"
           >
             <div className="pt-20 pb-16 px-8 card-body">
-              <div className="mb-4 text-base text-black hinge-prompt">
+              <div style={{ fontWeight: promptThicc }} className="mb-4 text-base text-black hinge-prompt">
                 {prompt}
               </div>
-              <div className="text-3xl text-black hinge-answer">{response}</div>
+              <div style={{ fontWeight: responseThicc }} className="text-3xl text-black hinge-answer">{response}</div>
             </div>
             {showLike && (
               <img
